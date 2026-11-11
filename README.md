@@ -1,44 +1,85 @@
-# 🪐 **Planet Hunter**
+<h1 align="center">🪐 Planet Hunter</h1>
 
-**Planet Hunter** is an arcade-style game developed in **Python**, where the player controls a spaceship to collect celestial bodies scattered across space.  
-The game combines **Pygame** for graphics, sound, and event handling, **Tkinter** for the interactive main menu, and **Requests** for dynamic API integration.
+<p align="center">
+  <i>An arcade space game in Python: pilot your rocket, capture planets discovered by NASA, and defeat three cosmic bosses.</i>
+</p>
 
----
-
-## 🎮 **How to Play**
-
-- Use the **W, A, S, D** keys to move the spaceship.  
-- Capture celestial bodies to score points.  
-- Every **10 points**, a **boss battle** appears — defeating the boss allows you to advance to the next stage.  
-- After the first boss, **20 points** are required to progress between levels.  
-- Defeat the **final boss** to unlock the ending screen!
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/Tkinter-GUI-1a1b27?style=for-the-badge" alt="Tkinter"/>
+  <img src="https://img.shields.io/badge/Pygame-audio-2E8B57?style=for-the-badge" alt="Pygame"/>
+  <img src="https://img.shields.io/badge/NASA-Exoplanet%20API-0B3D91?style=for-the-badge&logo=nasa&logoColor=white" alt="NASA API"/>
+</p>
 
 ---
 
-## ✨ **Features**
+## 📖 About
 
-- 🎨 **Menu Interface:** Main menu built with **Tkinter**, including buttons for “Play” and “Game Rules”.  
-- 🎵 **Dynamic Soundtrack:** Background music changes between stages and boss battles.  
-- 🧩 **Stage Progression:** The difficulty increases as you advance through levels.  
-- 💥 **Boss Battles:** Unique bosses appear at specific score milestones.  
-- 🌌 **API Integration:** Planet names are dynamically loaded from an **exoplanet API**, providing variety and authenticity.  
-- 🖼️ **Background Transitions:** Smooth visual transitions enhance the sense of progression.  
-- 🧠 **Skill Development:** Reinforces Python skills in event handling, collisions, GUI, sound, and game logic.
+**Planet Hunter** is a side-scrolling arcade game. You control a rocket on the left side of the screen and capture the planets flying towards you. Each level is named after a **real exoplanet**, fetched live from the **NASA Exoplanet Archive**. Every second level, a boss fight interrupts the hunt.
+
+## 🎮 How to Play
+
+| Key | Action |
+|-----|--------|
+| <kbd>↑</kbd> | Move the rocket up |
+| <kbd>↓</kbd> | Move the rocket down |
+
+- Capture planets to earn points; every **10 points** you level up.
+- Planets get **faster and spawn more often** as levels increase, and each level changes their colour and shape.
+- On levels **2, 4 and 6** you face a boss:
+  1. **Titanus Prime**: a comet bouncing across the screen. Intercept it!
+  2. **Spectra**: a faster, harder-to-catch boss.
+  3. **Doppelvoid**: spawns decoys. Only the **real** one ends the game, so a fake one restarts the fight.
+- Beat Doppelvoid to trigger the victory sequence and final screen. 🚀
+
+## ✨ Features
+
+- 🌌 **Live NASA data**: level names come from exoplanets discovered after 2010 (`pscomppars` table, NASA Exoplanet Archive TAP API)
+- 🧵 **Non-blocking API calls**: requests run in a background thread so the game never freezes
+- 🛡️ **Graceful fallback**: if the API is unreachable, the game keeps running with a placeholder name
+- 👾 **3 unique boss fights** with their own movement patterns
+- 🎵 **Dynamic soundtrack**: separate level, boss and victory music with fade-in transitions
+- 🖼️ **Changing backgrounds** for each stage
+- 🏠 **Main menu** with *Play* and *Rules* screens
+
+## 🚀 Getting Started
+
+### Requirements
+- Python **3.8+** (Tkinter is included with the standard Python installer)
+- An internet connection (optional, for real planet names)
+
+### Installation
+```bash
+git clone https://github.com/DiasDias106/Planet_Hunter.git
+cd Planet_Hunter/Planet_hunter/planet_hunter_game
+pip install pillow requests pygame
+python planet_hunter_main.py
+```
+
+> ⚠️ Run the script **from inside `planet_hunter_game/`**, because images and music are loaded through relative paths (`imagens_proj/`).
+
+## 📁 Project Structure
+
+```
+Planet_hunter/planet_hunter_game/
+├── planet_hunter_main.py   # Game logic, menus, bosses and API integration
+└── imagens_proj/           # Backgrounds, boss sprites, rocket and soundtrack (.jpg/.png/.mp3)
+```
+
+## 🛠️ Built With
+
+| Library | Purpose |
+|---------|---------|
+| `tkinter` | Window, canvas rendering, menus and input |
+| `Pillow` | Loading and resizing images |
+| `pygame` | Music playback (`pygame.mixer`) |
+| `requests` | NASA Exoplanet Archive API calls |
+| `threading` | Background API requests |
+
+## 📜 License
+
+Distributed under the terms of the [LICENSE](LICENSE) file in this repository.
 
 ---
 
-## ⚙️ **Technologies Used**
-
-- 🐍 **Python 3**  
-- 🎮 **Pygame** – graphics, event loop, sound system  
-- 🖱️ **Tkinter** – main menu and interface  
-- 🌍 **Requests** – API integration for planet names  
-
----
-
-## 🪐 **About the Planet API**
-
-The game connects to a **public exoplanet API** to generate unique planet names dynamically.  
-If the API is unavailable, a **local fallback list** ensures the game continues smoothly.
-
-
+<p align="center">Made by <a href="https://github.com/DiasDias106">Francisco Dias</a></p>
